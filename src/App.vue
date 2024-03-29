@@ -1,9 +1,21 @@
 <script>
-
+import axios from 'axios';
+const baseEndpoint = 'http://localhost:8000/api/projects/'
 export default {
-  name: 'Boolfolio'
-};
+  name: 'Boolfolio',
+  methods: {
+    fetchProjects() {
+      axios.get(baseEndpoint).then((res) => {
+        //test ricezione dati
+        console.log(res.data)
+      })
+    }
+  },
 
+  created() {
+    this.fetchProjects();
+  }
+}
 </script>
 
 <template>
