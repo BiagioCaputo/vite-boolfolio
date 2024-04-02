@@ -2,6 +2,9 @@
 /****************  Componenti template *****************/
 import AppHeader from './components/AppHeader.vue';
 
+
+
+
 export default {
   name: 'Boolfolio',
   components: { AppHeader },
