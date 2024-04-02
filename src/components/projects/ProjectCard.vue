@@ -40,7 +40,18 @@ export default {
                             class="fa-solid fa-eye"></i></RouterLink>
                 </div>
                 <p class="card-text">{{ isProjectShow ? project.description : getAbstract }}</p>
-                <p class="card-text"><small class="text-body-secondary">{{ getDate }}</small></p>
+                <div v-if="project.technologies?.length">
+                    <span v-for="technology in project.technologies" :key="technology.id"
+                        class="badge rounded-pill me-2 my-3" :class="`text-bg-${technology.color}`">
+                        {{ technology.label }}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="card-text"><small class="text-body-secondary">{{ getDate }}</small></p>
+                    <span v-if="project.type" class="badge" :style="{ backgroundColor: project.type.color }">
+                        {{ project.type.label }}</span>
+                </div>
+
+
             </div>
         </div>
     </div>
