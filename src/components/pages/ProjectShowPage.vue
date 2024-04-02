@@ -1,7 +1,7 @@
 <script>
 import ProjectCard from '../projects/ProjectCard.vue';
 
-
+import { store } from '../../data/store';
 import axios from 'axios';
 const endpoint = 'http://localhost:8000/api/projects/'
 export default {
@@ -9,11 +9,13 @@ export default {
     components: { ProjectCard },
     data() {
         return {
-            project: null
+            project: null,
+            store
         }
     },
     methods: {
         getProject() {
+            store.isLoading = true;
             axios.get(endpoint + this.$route.params.slug)
                 .then((res) => {
                     this.project = res.data;
@@ -21,7 +23,9 @@ export default {
                 .catch(err => {
                     console.log(err)
                 })
-                .then()
+                .then(() => {
+                    store.isLoading = false;
+                })
         }
     },
     created() {
@@ -31,7 +35,7 @@ export default {
 </script>
 
 <template>
-    <ProjectCard v-if="project" :project="project" :isProjectShow="true" />
+    <ProjectCard v-if="!store.isLoading && project" :project="project" :isProjectShow="true" />
 </template>
 
 <style lang='scss' scoped>
