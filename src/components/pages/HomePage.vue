@@ -30,7 +30,7 @@ export default {
 
     <h1 class="text-center my-5"> I miei progetti</h1>
     <div class="row row-cols-3">
-        <ProjectCard v-for="project in projects" :project="project" />
+        <ProjectCard v-for="project in projects" :project="project" :isProjectShow="false" />
     </div>
 
 </template>

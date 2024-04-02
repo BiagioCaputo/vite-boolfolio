@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-    <ProjectCard v-if="project" :project="project" />
+    <ProjectCard v-if="project" :project="project" :isProjectShow="true" />
 </template>
 
 <style lang='scss' scoped>

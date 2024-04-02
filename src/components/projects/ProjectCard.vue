@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'ProjectCard',
-    props: { project: Object },
+    props: { project: Object, isProjectShow: Boolean },
     computed: {
         //funzione per ricavare l'abstract dalle description dei projects
         getAbstract() {
@@ -36,10 +36,10 @@ export default {
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="card-title">{{ project.title }}</h5>
-                    <RouterLink class="btn btn-primary" :to="`/projects/${project.slug}`"><i
+                    <RouterLink v-if="!isProjectShow" class="btn btn-primary" :to="`/projects/${project.slug}`"><i
                             class="fa-solid fa-eye"></i></RouterLink>
                 </div>
-                <p class="card-text">{{ getAbstract }}</p>
+                <p class="card-text">{{ isProjectShow ? project.description : getAbstract }}</p>
                 <p class="card-text"><small class="text-body-secondary">{{ getDate }}</small></p>
             </div>
         </div>
