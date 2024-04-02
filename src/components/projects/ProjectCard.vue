@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-    <div class="col-4">
+    <div class="col">
         <div class="card mb-3">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
