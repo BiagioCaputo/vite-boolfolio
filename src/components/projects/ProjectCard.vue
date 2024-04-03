@@ -1,4 +1,6 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
     name: 'ProjectCard',
     props: { project: Object, isProjectShow: Boolean },
@@ -40,15 +42,29 @@ export default {
                             class="fa-solid fa-eye"></i></RouterLink>
                 </div>
                 <p class="card-text">{{ isProjectShow ? project.description : getAbstract }}</p>
+
+                <!-- Collegamento alla TechnologyProjectsPage -->
                 <div v-if="project.technologies?.length">
-                    <span v-for="technology in project.technologies" :key="technology.id"
-                        class="badge rounded-pill me-2 my-3" :class="`text-bg-${technology.color}`">
-                        {{ technology.label }}</span>
+                    <RouterLink v-for="technology in project.technologies" :key="technology.id"
+                        :to="{ name: 'technology-projects', params: { slug: technology.slug } }">
+                        <span class="badge rounded-pill me-2 my-3" :class="`text-bg-${technology.color}`">
+                            {{ technology.label }}
+                        </span>
+                    </RouterLink>
                 </div>
+
                 <div class="d-flex justify-content-between align-items-center">
+
                     <p class="card-text"><small class="text-body-secondary">{{ getDate }}</small></p>
-                    <span v-if="project.type" class="badge" :style="{ backgroundColor: project.type.color }">
-                        {{ project.type.label }}</span>
+
+                    <!-- Collegamento alla TypeProjectsPage -->
+                    <RouterLink v-if="project.type"
+                        :to="{ name: 'type-projects', params: { slug: project.type.slug } }">
+                        <span class="badge" :style="{ backgroundColor: project.type.color }">
+                            {{ project.type.label }}
+                        </span>
+                    </RouterLink>
+
                 </div>
 
 
@@ -56,3 +72,5 @@ export default {
         </div>
     </div>
 </template>
+
+<style scoped></style>
