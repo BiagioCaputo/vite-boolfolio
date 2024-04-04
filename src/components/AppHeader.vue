@@ -21,9 +21,9 @@ export default {
                             <RouterLink class="nav-link" to="/">Home</RouterLink>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Projects</a>
+                            <RouterLink class="nav-link" :to="{ name: 'contact-us' }">Contatti</RouterLink>
                         </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a class="nav-link" href="#">Types</a>
                         </li>
                         <li class="nav-item dropdown">
@@ -36,7 +36,7 @@ export default {
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </div>

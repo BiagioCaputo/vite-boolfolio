@@ -8,6 +8,7 @@ import NotFoundPage from "../components/pages/NotFoundPage.vue";
 import ProjectShowPage from "../components/pages/ProjectShowPage.vue";
 import TypeProjectsPage from "../components/pages/TypeProjectsPage.vue";
 import TechnologyProjectsPage from "../components/pages/TechnologyProjectsPage.vue";
+import ContactUsPage from '../components/pages/ContactUsPage.vue';
 
 
 
@@ -18,6 +19,7 @@ const router = createRouter({
     linkExactActiveClass: 'active',
     routes: [
         { path: '/', component: HomePage },
+        { path: '/contact-us', component: ContactUsPage, name: 'contact-us' },
 
         { path: '/projects/:slug', component: ProjectShowPage, name: 'project-show' },
         { path: '/types/:slug/projects', component: TypeProjectsPage, name: 'type-projects' },
